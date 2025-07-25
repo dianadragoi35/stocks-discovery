@@ -30,7 +30,9 @@
       "Bash(kill:*)",
       "Bash(pkill:*)",
       "Bash(find:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -1,177 +1,113 @@
+### AI Stock Discovery Application
+Project Overview
+Build an interactive web application that performs comprehensive market analysis to identify profitable stock opportunities using real-time data, web search, and AI-powered analysis.
+Core Functionality Requirements
+Primary Feature
 
-# Stock Discovery Mobile App - Development Guidelines
+Single prominent button labeled "Discover Profitable Stocks"
+When clicked, performs comprehensive web searches and market analysis
+Analyzes current political, economic, geopolitical, and market factors
+Displays organized results with technical analysis charts
+Provides actionable investment recommendations
 
-## Task Master AI Instructions
-**Import Task Master's development workflow commands and guidelines, treat as if import is in the main CLAUDE.md file.**
-@./.taskmaster/CLAUDE.md
+## Key Features to Implement
 
-## Testing Requirements - MANDATORY FOR EACH TASK
+# Clean, Modern UI
 
-### Puppeteer Testing Strategy
-After completing EACH task, you MUST create and run Puppeteer tests to validate the implementation:
+Professional financial theme with dark mode aesthetics
+Single action button design
+Loading indicators during analysis
+Responsive design for mobile and desktop
+Clear typography and organized information hierarchy
 
-#### 1. Task Completion Testing Protocol
-```javascript
-// Required for every completed task
-const puppeteer = require('puppeteer');
 
-describe('Task [ID] - [Task Name]', () => {
-  let browser, page;
-  
-  beforeEach(async () => {
-    browser = await puppeteer.launch({ headless: false });
-    page = await browser.newPage();
-    await page.setViewport({ width: 375, height: 812 }); // iPhone X dimensions
-  });
-  
-  afterEach(async () => {
-    await browser.close();
-  });
-  
-  // Add specific tests based on task requirements
-});
-```
+# Real-Time Data Integration
 
-#### 2. Mobile-First Testing Requirements
-All Puppeteer tests MUST include:
-- **Mobile viewport testing** (iPhone/Android dimensions)
-- **Touch interaction simulation** using `page.tap()`
-- **Network condition testing** (slow 3G, offline scenarios)
-- **Performance monitoring** with `page.metrics()`
-- **Accessibility testing** with axe-puppeteer
+Web search integration for current market conditions
+Financial data APIs for stock prices and market data
+News APIs for political and economic developments
+Economic data sources (Federal Reserve, economic indicators)
 
-#### 3. Task-Specific Testing Guidelines
 
-**Task 1 - Project Setup:**
-- Test app launches without errors
-- Verify TypeScript compilation works
-- Test React Navigation routing
-- Validate all dependencies load correctly
+# Comprehensive Market Analysis Engine
 
-**Task 2 - Design System:**
-- Test dark theme applies correctly
-- Verify component responsiveness across screen sizes
-- Test touch target sizes (minimum 44px)
-- Validate color contrast ratios
+Political Factors: Federal Reserve policy, Congressional legislation, regulatory changes, trade agreements, antitrust investigations, healthcare policy, environmental regulations, infrastructure spending
+Economic Dynamics: Supply chain disruptions, commodity prices, consumer spending, housing market, employment data, currency fluctuations, credit markets, M&A activity, IPO conditions
+Geopolitical Events: Regional conflicts, climate events, cybersecurity threats, space technology, pandemic trends, international alliances, technology restrictions, energy independence
+Technology & Innovation: AI/ML adoption, quantum computing, biotechnology, renewable energy, autonomous vehicles, 5G/6G networks, blockchain, semiconductor innovation
+Industry-Specific Catalysts: Seasonal cycles, demographic shifts, subscription economy, ESG trends, real estate development, food security, entertainment competition, fintech disruption
 
-**Task 3 - Main Discovery Interface:**
-- Test discovery button renders and responds to taps
-- Verify loading states display correctly
-- Test pull-to-refresh functionality
-- Validate error handling displays
 
-**Task 4 - Backend API:**
-- Test API endpoints with Puppeteer requests
-- Verify CORS headers for mobile requests
-- Test rate limiting and error responses
-- Validate mobile-optimized response payloads
+# Results Display System
 
-**Task 5 - Financial Data Integration:**
-- Test real API data fetching with network delays
-- Verify data displays correctly in mobile format
-- Test offline data caching behavior
-- Validate API error handling
+4-5 carefully selected stock recommendations
+Each recommendation includes:
 
-**Task 6 - News Integration:**
-- Test news loading with simulated slow network
-- Verify news categorization displays
-- Test news refresh functionality
-- Validate web scraping stability
+Company name, ticker, and current price
+Detailed investment thesis based on current factors
+Risk level assessment (Low/Medium/High)
+Suggested position size (% of portfolio)
+Expected timeline and key upcoming catalysts
+Technical analysis with interactive price charts
+Price targets with upside potential
 
-**Task 7 - Market Analysis Engine:**
-- Test analysis results display in mobile format
-- Verify complex data renders without performance issues
-- Test analysis with mocked market conditions
-- Validate factor categorization accuracy
 
-**Task 8 - AI Recommendations:**
-- Test recommendation loading states
-- Verify AI-generated content displays properly
-- Test recommendation interactions (taps, swipes)
-- Validate recommendation quality with sample data
+## Technical Specifications
+# Backend Architecture
 
-**Task 9 - Interactive Charts:**
-- Test chart rendering on mobile viewports
-- Verify touch interactions (pinch, zoom, pan)
-- Test horizontal scrolling behavior
-- Validate chart performance with large datasets
+Framework: Node.js with Express
+Database: PostgreSQL or MongoDB for storing analysis results
+APIs:
 
-**Task 10 - Results Display:**
-- Test card swiping gestures
-- Verify bottom sheet modal interactions
-- Test collapsible sections functionality
-- Validate mobile layout responsiveness
+Financial data (Yahoo Finance, Alpha Vantage, Polygon.io)
+News sources (NewsAPI, Financial Modeling Prep)
+Economic data (FRED API)
+Claude API for intelligent analysis
 
-**Task 11 - Caching & Performance:**
-- Test offline functionality with DevTools
-- Verify cache invalidation strategies
-- Test app performance under memory constraints
-- Validate background refresh behavior
 
-**Task 12 - Testing & Deployment:**
-- Test complete user flows end-to-end
-- Verify deployment builds work correctly
-- Test app store compliance requirements
-- Validate production performance metrics
+Web Scraping: Puppeteer or Cheerio for real-time market data
+Caching: Redis for API response caching
 
-#### 4. Mandatory Test Execution Command
-After completing each task, run:
-```bash
-npm run test:puppeteer:task-[ID]
-```
+# Frontend Architecture
 
-#### 5. Mobile Testing Best Practices
-- **Always test on actual mobile viewports**
-- **Simulate touch interactions, not mouse clicks**
-- **Test with realistic network conditions**
-- **Validate against mobile performance budgets**
-- **Test accessibility with screen reader simulation**
+Framework: React with TypeScript
+State Management: React hooks (useState, useReducer)
+Charts: Chart.js or Recharts for technical analysis visualization
+Styling: Tailwind CSS with dark theme
+Icons: Lucide React for consistent iconography
 
-#### 6. Test Reporting Requirements
-Each task completion MUST include:
-- Screenshot evidence of working functionality
-- Performance metrics (load time, memory usage)
-- Accessibility compliance report
-- Mobile responsiveness verification
-- Error handling validation
+# Data Sources to Integrate
 
-#### 7. Integration with Task Master
-When marking tasks as complete:
-```bash
-# Before marking complete, ensure tests pass
-npm run test:puppeteer:task-[ID]
+Stock Price Data
 
-# Update task with test results
-task-master update-subtask --id=[ID] --prompt="Puppeteer tests passing: [test summary]"
+Yahoo Finance API
+Alpha Vantage API
+Polygon.io API
+Real-time price feeds
 
-# Then mark complete
-task-master set-status --id=[ID] --status=done
-```
 
-## Development Workflow Integration
+Market News & Analysis
 
-### Required Package.json Scripts
-```json
-{
-  "scripts": {
-    "test:puppeteer": "jest --config=puppeteer.config.js",
-    "test:puppeteer:mobile": "MOBILE=true npm run test:puppeteer",
-    "test:puppeteer:task-1": "jest --testNamePattern='Task 1'",
-    "test:puppeteer:task-2": "jest --testNamePattern='Task 2'",
-    // ... add for each task
-  }
-}
-```
+NewsAPI for general market news
+Financial Modeling Prep for earnings and financial data
+Seeking Alpha RSS feeds
+MarketWatch and Bloomberg scraping
 
-### Testing Environment Setup
-- Install puppeteer, jest, axe-puppeteer
-- Configure mobile device emulation
-- Set up network throttling presets
-- Create accessibility testing utilities
 
-## IMPORTANT NOTES
-- **NO TASK IS COMPLETE WITHOUT PUPPETEER TESTS**
-- All tests must pass before marking task as done
-- Mobile-first testing is mandatory, not optional
-- Performance testing is required for every task
-- Document all test failures and resolutions
+Economic Data
+
+Federal Reserve Economic Data (FRED) API
+Bureau of Labor Statistics API
+Treasury.gov for bond yields
+Economic calendar APIs
+
+
+Political & Regulatory Data
+
+Congress.gov API for legislation tracking
+SEC EDGAR for regulatory filings
+Government press releases
+Policy think tank publications
+
+## Testing
+After every task is built, test the entire using puppeteer

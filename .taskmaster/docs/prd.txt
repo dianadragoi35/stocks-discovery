@@ -1,0 +1,79 @@
+Stock Discovery Mobile App - Product Requirements Document
+
+OVERVIEW
+Build a mobile-first stock discovery application that provides users with AI-powered investment recommendations based on comprehensive market analysis including political, economic, geopolitical, and technological factors.
+
+CORE FUNCTIONALITY
+
+Primary User Flow:
+- Single prominent "Discover Profitable Stocks" button on main screen
+- Performs comprehensive real-time market analysis when clicked
+- Displays 4-5 curated stock recommendations with detailed insights
+- Each recommendation includes investment thesis, risk assessment, and technical analysis
+
+TECHNICAL REQUIREMENTS
+
+Mobile Frontend (React Native + Expo):
+- React Native with TypeScript
+- Expo Go compatible setup
+- React Navigation 6.x for screen management
+- Victory Native or Chart Kit for technical analysis charts
+- Custom dark theme styling
+- AsyncStorage for caching and preferences
+- Professional financial UI with touch-friendly design
+- Loading states with skeleton screens
+- Pull-to-refresh functionality
+- Responsive design for all mobile devices
+
+Backend API (Node.js + Express):
+- RESTful API optimized for mobile consumption
+- PostgreSQL or MongoDB for data storage
+- Redis caching for API responses
+- Web scraping with Puppeteer/Cheerio for real-time data
+
+Data Integration Requirements:
+- Financial APIs: Yahoo Finance, Alpha Vantage, Polygon.io
+- News APIs: NewsAPI, Financial Modeling Prep
+- Economic data: FRED API
+- AI analysis: Claude API integration
+
+ANALYSIS ENGINE CAPABILITIES
+
+The app must analyze and incorporate:
+- Political factors: Fed policy, legislation, regulations, trade agreements
+- Economic dynamics: Supply chains, commodities, consumer spending, employment
+- Geopolitical events: Conflicts, climate events, cybersecurity, international relations
+- Technology trends: AI/ML, quantum computing, biotech, renewable energy, autonomous vehicles
+- Industry catalysts: Seasonal cycles, demographic shifts, ESG trends, fintech disruption
+
+MOBILE UI SPECIFICATIONS
+
+Results Display:
+- Card-based layout for stock recommendations
+- Swipeable cards for navigation
+- Collapsible sections for detailed analysis
+- Horizontal scrolling price charts
+- Bottom sheet modals for expanded details
+
+Each Stock Card Must Include:
+- Company name, ticker, current price
+- Investment thesis based on current market factors
+- Color-coded risk level assessment
+- Suggested portfolio allocation percentage
+- Expected timeline and key catalysts
+- Interactive technical analysis charts
+- Price targets with upside potential
+
+PERFORMANCE REQUIREMENTS
+- Fast loading with skeleton screens during analysis
+- Efficient caching strategy for repeated requests
+- Optimized API responses for mobile bandwidth
+- Smooth animations and transitions
+- Error handling and offline capabilities
+
+SUCCESS CRITERIA
+- Users can discover profitable stock opportunities in under 30 seconds
+- Recommendations are backed by comprehensive, real-time market analysis
+- Mobile interface is intuitive and professional
+- Technical analysis charts provide actionable insights
+- App performs reliably across different devices and network conditions

@@ -1,0 +1,17 @@
+# Task ID: 7
+# Title: Market Analysis Engine
+# Status: pending
+# Dependencies: 5 (Not found), 6 (Not found)
+# Priority: high
+# Description: Build comprehensive analysis engine that processes multiple market factors
+# Details:
+- Create political factor analysis (Fed policy, legislation, regulations)
+- Implement economic dynamics analysis (supply chains, commodities, employment)
+- Build geopolitical event monitoring and analysis
+- Create technology trend analysis system
+- Implement industry-specific catalyst detection
+- Build risk assessment algorithms
+- Create investment thesis generation system
+
+# Test Strategy:
+Test analysis accuracy, performance with large datasets, and reliability of factor detection
